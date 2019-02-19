@@ -31,6 +31,20 @@ class Solution(object):
                 ret.append(n)
                 tmp_dict[n] -= 1
         return ret
+    def case3(self, nums1, nums2):#利用字典的计数能力
+        dicts = {}
+        for i in nums1:
+            if i in dicts:
+                dicts[i] += 1
+            else:
+                dicts[i] = 1
+        a = []
+        for j in nums2:
+            if j in dicts and dicts[j] > 0:
+                a.append(j)
+                dicts[j] -= 1
+
+        return a
 
 if __name__ == '__main__':
     nums1 = [4, 7, 9, 7, 6, 7]
